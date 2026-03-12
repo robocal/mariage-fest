@@ -1,55 +1,115 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Mariage Fest 2026</title>
 
 <style>
 
 body{
-    background:#0a0f2a;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
-    font-family:Arial;
+margin:0;
+background:#02071d;
+height:100vh;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+font-family:Arial;
+overflow:hidden;
+color:white;
 }
 
+/* halo doré */
+
+body::before{
+content:"";
+position:absolute;
+width:1200px;
+height:1200px;
+background:radial-gradient(circle, rgba(255,210,90,0.35), transparent 70%);
+animation:goldGlow 6s ease-in-out infinite alternate;
+}
+
+@keyframes goldGlow{
+from{transform:scale(1);opacity:0.4;}
+to{transform:scale(1.3);opacity:0.7;}
+}
+
+/* scène concert */
+
+.stage-light{
+position:absolute;
+width:4px;
+height:200%;
+background:linear-gradient(to bottom, rgba(255,215,100,0.8), transparent);
+top:-50%;
+animation:lightMove 5s linear infinite;
+filter:blur(3px);
+}
+
+.stage-light:nth-child(1){left:20%; animation-delay:0s;}
+.stage-light:nth-child(2){left:40%; animation-delay:1s;}
+.stage-light:nth-child(3){left:60%; animation-delay:2s;}
+.stage-light:nth-child(4){left:80%; animation-delay:3s;}
+
+@keyframes lightMove{
+0%{transform:rotate(-25deg);}
+50%{transform:rotate(25deg);}
+100%{transform:rotate(-25deg);}
+}
+
+/* carte */
+
 .card{
-    width:420px;
-    height:720px;
-    perspective:1200px;
-    cursor:pointer;
+width:420px;
+height:720px;
+perspective:1400px;
+cursor:pointer;
+z-index:10;
 }
 
 .card-inner{
-    position:relative;
-    width:100%;
-    height:100%;
-    transition:transform 0.8s;
-    transform-style:preserve-3d;
+position:relative;
+width:100%;
+height:100%;
+transition:transform 0.9s;
+transform-style:preserve-3d;
 }
 
 .card.flipped .card-inner{
-    transform:rotateY(180deg);
+transform:rotateY(180deg);
 }
 
-.card-face{
-    position:absolute;
-    width:100%;
-    height:100%;
-    backface-visibility:hidden;
-    border-radius:12px;
-    box-shadow:0 20px 40px rgba(0,0,0,0.6);
+.face{
+position:absolute;
+width:100%;
+height:100%;
+backface-visibility:hidden;
+border-radius:14px;
+box-shadow:0 25px 80px rgba(0,0,0,0.7);
 }
 
 .front{
-    background:url("recto.png") center/cover no-repeat;
+background:url("recto.png") center/cover no-repeat;
 }
 
 .back{
-    background:url("verso.png") center/cover no-repeat;
-    transform:rotateY(180deg);
+background:url("verso.png") center/cover no-repeat;
+transform:rotateY(180deg);
+}
+
+.title{
+position:absolute;
+top:30px;
+text-align:center;
+width:100%;
+font-size:26px;
+font-weight:300;
+letter-spacing:1px;
+z-index:10;
 }
 
 </style>
@@ -57,16 +117,23 @@ body{
 
 <body>
 
+<div class="stage-light"></div>
+<div class="stage-light"></div>
+<div class="stage-light"></div>
+<div class="stage-light"></div>
+
+<div class="title">
+Cliquez sur l'affiche
+</div>
+
 <div class="card" onclick="this.classList.toggle('flipped')">
-    <div class="card-inner">
+<div class="card-inner">
 
-        <div class="card-face front"></div>
+<div class="face front"></div>
+<div class="face back"></div>
 
-        <div class="card-face back"></div>
-
-    </div>
+</div>
 </div>
 
 </body>
-</html>
 </html>
