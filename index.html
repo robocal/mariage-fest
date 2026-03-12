@@ -1,73 +1,55 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Mariage Fest 2026</title>
 
 <style>
 
 body{
-margin:0;
-background:#0a0f2a;
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
-height:100vh;
-font-family:Arial;
-color:white;
-text-align:center;
-}
-
-h1{
-margin-bottom:30px;
-font-weight:300;
+    background:#0a0f2a;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    font-family:Arial;
 }
 
 .card{
-width:420px;
-height:720px;
-perspective:1200px;
-cursor:pointer;
+    width:420px;
+    height:720px;
+    perspective:1200px;
+    cursor:pointer;
 }
 
 .card-inner{
-position:relative;
-width:100%;
-height:100%;
-transition:transform 0.9s;
-transform-style:preserve-3d;
+    position:relative;
+    width:100%;
+    height:100%;
+    transition:transform 0.8s;
+    transform-style:preserve-3d;
 }
 
 .card.flipped .card-inner{
-transform:rotateY(180deg);
+    transform:rotateY(180deg);
 }
 
-.face{
-position:absolute;
-width:100%;
-height:100%;
-backface-visibility:hidden;
-border-radius:14px;
-box-shadow:0 25px 60px rgba(0,0,0,0.6);
+.card-face{
+    position:absolute;
+    width:100%;
+    height:100%;
+    backface-visibility:hidden;
+    border-radius:12px;
+    box-shadow:0 20px 40px rgba(0,0,0,0.6);
 }
 
 .front{
-background:url("recto.png") center/cover no-repeat;
+    background:url("recto.png") center/cover no-repeat;
 }
 
 .back{
-background:url("verso.png") center/cover no-repeat;
-transform:rotateY(180deg);
-}
-
-.footer{
-margin-top:25px;
-opacity:0.7;
-font-size:14px;
+    background:url("verso.png") center/cover no-repeat;
+    transform:rotateY(180deg);
 }
 
 </style>
@@ -75,21 +57,16 @@ font-size:14px;
 
 <body>
 
-<h1>Cliquez sur l'affiche</h1>
-
 <div class="card" onclick="this.classList.toggle('flipped')">
-<div class="card-inner">
+    <div class="card-inner">
 
-<div class="face front"></div>
+        <div class="card-face front"></div>
 
-<div class="face back"></div>
+        <div class="card-face back"></div>
 
-</div>
-</div>
-
-<div class="footer">
-Mariage Fest 2026 • Marlène & Cyrille
+    </div>
 </div>
 
 </body>
+</html>
 </html>
